@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pabluoff - Fylo</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="overlay-img"></div>
+    <div class="background-image"></div>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <svg class="logo-svg" version="1.0" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px"
+                    viewBox="0 0 300 270" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision">
+                    <g transform="translate(0,270) scale(0.1,-0.1)" stroke="currentColor" stroke-width="120px"
+                        fill="none">
+                        <path
+                            d="M1695 2361 c-16 -10 -109 -87 -205 -170 -96 -83 -180 -151 -185 -151 -6 0 -29 18 -50 40 -44 45 -72 50 -102 18 -12 -13 -57 -95 -101 -183 -82 -164 -99 -186 -218 -286 -190 -159 -527 -455 -539 -472 -8 -12 -15 -29 -15 -38 0 -18 191 -250 245 -298 35 -30 37 -31 67 -15 16 9 49 33 72 53 54 49 454 394 520 448 28 23 56 42 63 43 7 0 79 -78 160 -172 195 -227 253 -288 273 -288 29 0 57 41 145 221 63 127 85 182 81 197 -4 12 -70 94 -147 183 -76 89 -139 167 -139 173 0 14 51 66 65 66 7 0 137 -147 291 -327 462 -542 454 -534 496 -496 33 29 200 372 194 397 -3 12 -81 109 -173 217 -92 108 -284 333 -427 500 -253 298 -310 359 -331 359 -5 0 -23 -9 -40 -19z" />
+                        <path
+                            d="M286 649 l-26 -20 0 -178 c0 -168 1 -179 21 -197 20 -18 56 -19 1184 -22 l1162 -2 26 21 27 20 0 179 0 179 -26 20 c-27 21 -28 21 -1184 21 -1156 0 -1157 0 -1184 -21z" />
+                    </g>
+                </svg>
+                <span>Fylo</span>
+            </div>
+            <div class="right-icons">
+                <div class="notification-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
+                        class="bi bi-bell" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6" />
+                    </svg>
+                </div>
+
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                    </svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2" />
+                        <path d="M12 20v2" />
+                        <path d="m4.93 4.93 1.41 1.41" />
+                        <path d="m17.66 17.66 1.41 1.41" />
+                        <path d="M2 12h2" />
+                        <path d="M20 12h2" />
+                        <path d="m6.34 17.66-1.41 1.41" />
+                        <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="share-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="5" cy="12" r="2" />
+                    <circle cx="12" cy="12" r="2" />
+                    <circle cx="19" cy="12" r="2" />
+                </svg>
+            </div>
+
+    </nav>
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-image">
+                <img id="profile-img" src="pabluoff-w.JPG" alt="Pabluoff" />
+            </div>
+            <h1>Pablo Gabriel</h1>
+            <p class="bio">Criador de soluções e estrategista.</p>
+            <p class="description">Pablo Gabriel, ou Pabluoff. Fui de desconhecido a <strong>milionário</strong>, e o
+                segredo? Estava sempre <strong>com os pés</strong> no lugar certo.</p>
+
+            <div class="social-links">
+                <a href="#" class="social-link instagram" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="#" class="social-link tiktok" aria-label="TikTok">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                    </svg>
+                </a>
+                <a href="#" class="social-link youtube" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                        <path d="m10 15 5-3-5-3z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+        <div class="footer-bg-text" id="fylo-text"></div>
+        <div class="footer-content">
+            <div class="copyright" >
+                © 2025 Pabluoff. TODOS OS DIREITOS <br>
+            </div>
+            <div class="social-links">
+                <a href="#">INSTAGRAM</a>
+                <a href="#">X/TWITTER</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="share-modal" id="shareModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Share link</h2>
+                <button class="close-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                  </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-card">
+                    <img id="modal-profile-img" src="" alt="Profile" class="modal-profile-image">
+                    <div class="profile-info">
+                        <h3>@Pabluoff</h3>
+                        <p>link.pabluoff.com</p>
+                    </div>
+                </div>
+                <div class="share-options">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
