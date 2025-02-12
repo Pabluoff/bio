@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     ];
-        
+
     // Cria e adiciona os botões de compartilhamento
     shareButtons.forEach(button => {
         const buttonElement = document.createElement('button');
