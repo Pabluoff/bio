@@ -412,6 +412,49 @@ body:not(.dark-mode) .footer-content .copyright {
     z-index: 1000;
     width: 90%;
     max-width: 400px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.share-modal.active {
+    display: block;
+    animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .share-modal {
+        width: 100%;
+        height: auto;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%);
+        max-width: none;
+    }
+
+    .share-modal.active {
+        transform: translateY(0);
+        animation: mobileModalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes mobileModalSlideIn {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
 }
 
 .modal-content {
@@ -509,21 +552,11 @@ body:not(.dark-mode) .footer-content .copyright {
     z-index: 999;
 }
 
-.share-modal.active,
 .modal-overlay.active {
     display: block;
 }
 
 @media (max-width: 768px) {
-    .share-modal {
-        width: 100%;
-        height: auto;
-        top: auto;
-        bottom: 0;
-        left: 0;
-        transform: none;
-        max-width: none;
-    }
 
     .modal-content {
         border-radius: 32px 32px 0 0;
@@ -553,7 +586,7 @@ body:not(.dark-mode) .footer-content .copyright {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 20px;
+    gap: 2px;
     padding: 24px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -641,7 +674,7 @@ body:not(.dark-mode) .footer-content .copyright {
 }
 
 .share-option.copy .icon-circle {
-    background: linear-gradient(135deg, #747474, #a4a4a4);
+    background: linear-gradient(135deg, #747474, #747474);
 }
 
 .share-option.instagram .icon-circle {
@@ -654,4 +687,41 @@ body:not(.dark-mode) .footer-content .copyright {
 
 .share-option.whatsapp .icon-circle {
     background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.icon-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.share-option.x .icon-circle {
+    background: #000000;
+}
+
+.share-option.facebook .icon-circle {
+    background: #1877F2;
+}
+
+.share-option.instagram .icon-circle {
+    background: var(--instagram-gradient);
+}
+
+.share-option.telegram .icon-circle {
+    background: linear-gradient(135deg, #2AABEE, #229ED9);
+}
+
+/* Modal Overlay Animation */
+.modal-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
 }
