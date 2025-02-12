@@ -1,7 +1,7 @@
 :root {
     --bg-primary: #e7e7e7;
     --text-primary: #000000;
-    --text-secondary: #666666;
+    --text-secondary: #484848;
     --accent-orange: #FF6B2C;
     --accent-red: #FF4B4B;
     --card-bg: #ffffff;
@@ -17,8 +17,8 @@
 
 .dark-mode {
     --bg-primary: #101010;
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
+    --text-primary: #dddddd;
+    --text-secondary: #a2a2a2;
     --card-bg: #2d2d2d;
     --navbar-bg: rgba(45, 45, 45, 0.8);
 }
@@ -218,16 +218,25 @@ h1 {
 }
 
 .bio {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary); 
+    text-align: center;
+    margin: 0.75rem auto;
+    max-width: 600px;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
 }
 
 .description {
-    color: var(--text-secondary);
-    font-size: 1.15rem;
-    margin-bottom: 2rem;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-secondary); 
+    text-align: center;
+    margin: 0.5rem auto 1rem auto;
+    max-width: 300px;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
 }
 
 @media (max-width: 480px) {
