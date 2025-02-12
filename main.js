@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const isDarkMode = body.classList.contains('dark-mode');
-        // Registra a escolha do usuário
         localStorage.setItem('darkMode', isDarkMode);
         updateProfileImage();
     });
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         updateProfileImage();
     } else {
-        // Caso não haja preferência salva, inicializa com a preferência do sistema
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             body.classList.add('dark-mode');
         } else {
@@ -53,10 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProfileImage();
     }
 
-    // Função para detectar mudanças no tema do sistema em tempo real (se não houver override do usuário)
     const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
     systemPreference.addEventListener('change', e => {
-        // Só atualiza automaticamente se o usuário ainda não escolheu manualmente (localStorage é null)
         if (localStorage.getItem('darkMode') === null) {
             if (e.matches) {
                 body.classList.add('dark-mode');
@@ -88,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const currentProfileImg = document.getElementById('profile-img');
             modalProfileImg.src = currentProfileImg.src;
-            // Se necessário, chame a função checkCarouselScroll();
         });
     }
 
