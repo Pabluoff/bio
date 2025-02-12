@@ -23,51 +23,63 @@ document.addEventListener('DOMContentLoaded', () => {
         setBackground();
     };
 
-    // Função para inicializar o tema automaticamente
-    const initializeTheme = () => {
-        const savedDarkMode = localStorage.getItem('darkMode');
-        if (savedDarkMode !== null) {
-            // Se já houver uma preferência salva, usa ela
-            if (savedDarkMode === 'true') {
-                body.classList.add('dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-            }
-        } else {
-            // Caso contrário, usa a preferência do sistema
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                body.classList.add('dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-            }
-        }
-        updateProfileImage();
-    };
-
-    // Inicializa o tema de acordo com a preferência do sistema (se não houver escolha do usuário)
-    initializeTheme();
+    setBackground();
 
     // Evento para alternar o tema manualmente via toggle
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const isDarkMode = body.classList.contains('dark-mode');
+        // Registra a escolha do usuário
         localStorage.setItem('darkMode', isDarkMode);
         updateProfileImage();
     });
 
-    // Share modal functionality
+    // Verifica a preferência salva e aplica
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode !== null) {
+        if (savedDarkMode === 'true') {
+            body.classList.add('dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+        }
+        updateProfileImage();
+    } else {
+        // Caso não haja preferência salva, inicializa com a preferência do sistema
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+        }
+        updateProfileImage();
+    }
+
+    // Função para detectar mudanças no tema do sistema em tempo real (se não houver override do usuário)
+    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+    systemPreference.addEventListener('change', e => {
+        // Só atualiza automaticamente se o usuário ainda não escolheu manualmente (localStorage é null)
+        if (localStorage.getItem('darkMode') === null) {
+            if (e.matches) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+            updateProfileImage();
+        }
+    });
+
+    /* Share modal functionality */
     const shareIcon = document.querySelector('.share-icon');
     const shareModal = document.getElementById('shareModal');
     const closeButton = document.querySelector('.close-button');
     const modalProfileImg = document.getElementById('modal-profile-img');
     const shareOptions = document.querySelector('.share-options');
 
-    // Create overlay with fade effect
+    // Cria um overlay com efeito de fade
     const overlay = document.createElement('div');
     overlay.className = 'modal-overlay';
     document.body.appendChild(overlay);
 
-    // Function to open modal with smooth animation
+    // Abre o modal com animação suave
     function openModal() {
         requestAnimationFrame(() => {
             shareModal.classList.add('active');
@@ -76,25 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const currentProfileImg = document.getElementById('profile-img');
             modalProfileImg.src = currentProfileImg.src;
-
-            // Check if carousel needs scroll indicators
-            // checkCarouselScroll(); // Caso exista essa função
+            // Se necessário, chame a função checkCarouselScroll();
         });
     }
 
-    // Function to close modal with smooth animation
+    // Fecha o modal com animação suave
     function closeModal() {
         shareModal.classList.remove('active');
         overlay.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-    // Event listeners for modal
     shareIcon.addEventListener('click', openModal);
     closeButton.addEventListener('click', closeModal);
     overlay.addEventListener('click', closeModal);
 
-    // Escape key to close modal
+    // Fecha o modal com a tecla Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && shareModal.classList.contains('active')) {
             closeModal();
@@ -111,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.body.appendChild(copyFeedback);
 
-    // Function to show copy feedback
+    // Exibe feedback de cópia
     function showCopyFeedback() {
         copyFeedback.classList.add('show');
         setTimeout(() => {
@@ -119,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     }
 
-    // Share buttons configuration
+    // Configuração dos botões de compartilhamento
     const shareButtons = [
         {
             name: 'copy',
@@ -200,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     ];
-
+        
     // Cria e adiciona os botões de compartilhamento
     shareButtons.forEach(button => {
         const buttonElement = document.createElement('button');
